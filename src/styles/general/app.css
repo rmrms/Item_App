@@ -1,0 +1,69 @@
+/* App Container */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Main Content Area */
+main {
+  flex-grow: 1;
+  padding: 20px;
+  padding-bottom: 60px; /* Add space at the bottom to avoid overlap with the navbar */
+  overflow-y: auto;
+}
+
+/* Navbar - Mimicking Windows 11 Taskbar */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: white;
+  padding: 10px 0;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 15px 15px 0 0;
+  z-index: 10;
+}
+
+/* Navbar Links */
+.navbar a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+  background-color: #444;
+  transform: translateY(-2px);
+}
+
+/* Active Link */
+.navbar a.active {
+  background-color: #1f80ff;
+  color: white;
+}
+
+/* Responsive Navbar for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .navbar a {
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+  }
+}

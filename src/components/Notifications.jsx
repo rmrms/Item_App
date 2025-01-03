@@ -1,18 +1,45 @@
+import { useState, useEffect } from "react";
 import { useItems } from "../context/ItemContext";
+import "../styles/notifications/style.css";
 
 const Notifications = () => {
-  const { notifications } = useItems();
+  const { notifications, removeNotification } = useItems();
+  const [visibleNotifications, setVisibleNotifications] = useState([]);
 
-  if (!notifications || notifications.length === 0) {
-    return <p>No notifications available.</p>;
-  }
+  useEffect(() => {
+    const sortedNotifications = [...notifications].sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB - dateA;
+    });
+    setVisibleNotifications(sortedNotifications);
+  }, [notifications]);
+
+  const handleDelete = (index) => {
+    const notificationToDelete = visibleNotifications[index];
+    removeNotification(notificationToDelete);
+    setVisibleNotifications((prev) => prev.filter((_, i) => i !== index));
+  };
 
   return (
     <div className="notifications">
       <h1>Notifications</h1>
       <ul>
-        {notifications.map((notification, index) => (
-          <li key={index}>{notification.message}</li>
+        {visibleNotifications.map((notification, index) => (
+          <li key={index} className="notification-item">
+            <strong>{notification.message}</strong> - {notification.date}
+            {notification.details && (
+              <div>
+                <strong>Details:</strong> {notification.details}
+              </div>
+            )}
+            <button
+              onClick={() => handleDelete(index)}
+              className="delete-notification-btn"
+            >
+              Delete
+            </button>
+          </li>
         ))}
       </ul>
     </div>

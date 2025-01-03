@@ -1,0 +1,84 @@
+/* Container for the Add Item Page */
+.add-item-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Page Heading */
+.add-item-page h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.add-item-page button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-item-page button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Labels */
+.add-item-page label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Inputs, Textarea, and Select */
+.add-item-page input,
+.add-item-page textarea,
+.add-item-page select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.add-item-page textarea {
+  resize: vertical; /* Allow resizing vertically only */
+  max-height: 300px; /* Optional: Restrict maximum height */
+}
+
+.add-item-page input:focus,
+.add-item-page textarea:focus,
+.add-item-page select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-item-page {
+    padding: 10px;
+  }
+
+  .add-item-page button {
+    width: 100%;
+  }
+
+  .add-item-page textarea {
+    max-width: 100%;
+  }
+}

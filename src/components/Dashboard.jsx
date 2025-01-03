@@ -1,33 +1,61 @@
-import React from "react";
 import { useItems } from "../context/ItemContext";
+import Updates from "../pages/Updates";
+import "../styles/dashboard/style.css";
 
 const Dashboard = () => {
-  const { items } = useItems(); // Hozzáférés az elemekhez a kontextusból
-  const totalItems = items.length; // Az összes elem száma
+  const { items } = useItems();
+  const totalItems = items.length;
   const totalValue = items.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
-  ); // Teljes érték
+  );
+
+  const ItemCard = ({ name, quantity, location }) => (
+    <div className="item-card">
+      <p><strong>{name}</strong></p>
+      <p>Quantity: {quantity}</p>
+      <p>
+        Location:{" "}
+        {location ? (
+          <>
+            {location.country}, {location.city}, {location.storage}
+          </>
+        ) : (
+          "Unknown Location"
+        )}
+      </p>
+    </div>
+  );
 
   return (
     <div className="dashboard">
-      <h1>Inventory Summary</h1>
-      <p>Total items: {totalItems}</p>
-      <p>Total value: ${totalValue.toFixed(2)}</p>
+      <header className="dashboard-header">
+        <h1>Dashboard</h1>
+        <div className="dashboard-summary">
+          <p><strong>Total items:</strong> {totalItems}</p>
+          <p><strong>Total value:</strong> ${totalValue.toFixed(2)}</p>
+        </div>
+      </header>
 
-      <h2>Transaction Tracker</h2>
-      {/* Hely a tranzakciófigyelőnek */}
+      <Updates />
 
-      <h2>Recent Items</h2>
-      <ul>
-        {items.slice(-5).map(
-          (
-            item // Az utolsó 5 elem
-          ) => (
-            <li key={item.id}>{item.name}</li>
-          )
+      <section className="dashboard-section">
+        <h2>Recent Items</h2>
+        {totalItems === 0 ? (
+          <p>No items available. Please add one!</p>
+        ) : (
+          <div className="grid-layout">
+            {items.slice(-5).map((item) => (
+              <ItemCard
+                key={item.id}
+                name={item.name}
+                quantity={item.quantity}
+                location={item.location}
+              />
+            ))}
+          </div>
         )}
-      </ul>
+      </section>
     </div>
   );
 };

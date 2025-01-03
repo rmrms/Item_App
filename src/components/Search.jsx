@@ -1,18 +1,18 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useItems } from "../context/ItemContext";
+import "../styles/search/style.css";
 
 const Search = () => {
   const { items } = useItems();
   const [searchTerm, setSearchTerm] = useState("");
-
-  // const handleSearch = (term) => {
-  //   searchTerm(term);
-  // };
+  const navigate = useNavigate();
 
   if (!items || items.length === 0) {
     return <p>No items to search.</p>;
   }
 
+  // Filter items based on the search term
   const filteredItems = items.filter((item) =>
     item.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -27,7 +27,15 @@ const Search = () => {
       />
       <ul>
         {filteredItems.map((item) => (
-          <li key={item.id}>{item.name}</li>
+          <li
+            key={item.id}
+            onClick={() => navigate(`/items/${item.id}`)}
+            style={{
+              cursor: "pointer",
+            }}
+          >
+            {item.name}
+          </li>
         ))}
       </ul>
     </div>
