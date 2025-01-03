@@ -7,6 +7,9 @@ import ItemPage from "./pages/ItemPage";
 import Search from "./components/Search";
 import AddItemPage from "./pages/AddItemPage";
 import Notifications from "./components/Notifications";
+import { Auth } from "../src/config/auth/auth";
+import { db } from "./config/firebase";
+import { getDocs } from "./config/firebase/firestore";
 import "../src/styles/general/app.css";
 
 function App() {
@@ -23,6 +26,7 @@ function App() {
                 <Route path="/add-item" element={<AddItemPage />} />
                 <Route path="/search" element={<Search />} />
                 <Route path="/notifications" element={<Notifications />} />
+                <Auth />
               </Routes>
             </main>
           </ErrorBoundary>

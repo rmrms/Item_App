@@ -1,0 +1,21 @@
+[debug] [2025-01-03T19:52:41.680Z] ----------------------------------------------------------------------
+[debug] [2025-01-03T19:52:41.682Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\appa9\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-01-03T19:52:41.682Z] CLI Version:   13.29.1
+[debug] [2025-01-03T19:52:41.682Z] Platform:      win32
+[debug] [2025-01-03T19:52:41.682Z] Node Version:  v20.15.0
+[debug] [2025-01-03T19:52:41.682Z] Time:          Fri Jan 03 2025 20:52:41 GMT+0100 (közép-európai téli idő)
+[debug] [2025-01-03T19:52:41.683Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-01-03T19:52:41.688Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-01-03T19:52:41.688Z] > authorizing via signed-in user (sllyx29@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\appa9\OneDrive\Asztali gép\practice every day\soter\REACT\SOTER VEGSO PROJECT\item-app
+
